@@ -1,0 +1,63 @@
+_schema-version: "3.2"
+ID: fa900
+version: 0.0.1
+modules:
+- name: fa900-approuter
+  type: approuter.nodejs
+  path: fa900-approuter
+  requires:
+  - name: fa900_html_repo_runtime
+  - name: yorg-demo-apiaccess
+  - name: dest_mta-yorg
+  parameters:
+    disk-quota: 256M
+    memory: 256M
+- name: fa900_ui_deployer
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: fa900_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - yorg-content.zip
+      name: yorg
+      target-path: resources/
+- name: yorg
+  type: html5
+  path: yorg
+  build-parameters:
+    builder: custom
+    commands:
+    - npm run build
+    supported-platforms: []
+resources:
+- name: fa900_html_repo_runtime
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-runtime
+- name: fa900_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-host
+- name: yorg-demo-apiaccess
+  type: org.cloudfoundry.existing-service
+  parameters:
+    service: apiaccess
+    service-plan: xsuaa
+- name: dest_mta-yorg
+  parameters:
+    service: destination
+    service-plan: lite
+    type: org.cloudfoundry.managed-service
+
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npm install

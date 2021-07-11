@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0"
+    xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+        <edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="CatalogService"
+            xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Books" EntityType="CatalogService.Books"/>
+                <EntitySet Name="Resultvw01" EntityType="CatalogService.Resultvw01"/>
+                <EntitySet Name="Resultvw01_1" EntityType="CatalogService.Resultvw01_1"/>
+                <EntitySet Name="S4BONDHST" EntityType="CatalogService.S4BONDHST"/>
+                <EntitySet Name="YCREDIT" EntityType="CatalogService.YCREDIT"/>
+                <EntitySet Name="YCREDIT2" EntityType="CatalogService.YCREDIT2"/>
+                <EntitySet Name="YCREDIT3" EntityType="CatalogService.YCREDIT3"/>
+                <EntitySet Name="YCUSTMST" EntityType="CatalogService.YCUSTMST"/>
+                <EntitySet Name="YEXCREDIT" EntityType="CatalogService.YEXCREDIT"/>
+                <EntitySet Name="YEXCREDITH" EntityType="CatalogService.YEXCREDITH"/>
+                <EntitySet Name="YORG" EntityType="CatalogService.YORG"/>
+                <EntitySet Name="YSECURITY" EntityType="CatalogService.YSECURITY"/>
+                <EntitySet Name="ZS4BSIDDAT" EntityType="CatalogService.ZS4BSIDDAT"/>
+                <EntitySet Name="mastervw" EntityType="CatalogService.mastervw"/>
+                <EntitySet Name="Batchrt01" EntityType="CatalogService.Batchrt01Parameters"/>
+                <EntitySet Name="Batchrt01_1" EntityType="CatalogService.Batchrt01_1Parameters"/>
+                <EntitySet Name="Resultvw02" EntityType="CatalogService.Resultvw02Parameters"/>
+                <ActionImport Name="PC_DAILY_BATCH" Action="CatalogService.PC_DAILY_BATCH"/>
+            </EntityContainer>
+            <EntityType Name="Books">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="title" Type="Edm.String"/>
+                <Property Name="stock" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType Name="Resultvw01">
+                <Property Name="PRCTRT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="SEGMENT" Type="Edm.String" MaxLength="30"/>
+                <Property Name="overdue_amt01" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue_amt02" Type="Edm.Decimal" Scale="2" Precision="23"/>
+            </EntityType>
+            <EntityType Name="Resultvw01_1">
+                <Property Name="PRCTRT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="SEGMENT" Type="Edm.String" MaxLength="30"/>
+                <Property Name="KUNNR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="SEVAL_AMT01" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="SEVAL_AMT02" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="KULIM_AMT" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="PLAN_AMT" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue1_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue2_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue3_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue4_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+            </EntityType>
+            <EntityType Name="S4BONDHST">
+                <Key>
+                    <PropertyRef Name="KUNNR"/>
+                    <PropertyRef Name="BUKRS"/>
+                    <PropertyRef Name="GJAHR"/>
+                    <PropertyRef Name="BELNR"/>
+                    <PropertyRef Name="BUZEI"/>
+                </Key>
+                <Property Name="KUNNR" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="BUKRS" Type="Edm.String" MaxLength="4" Nullable="false"/>
+                <Property Name="GJAHR" Type="Edm.String" MaxLength="4" Nullable="false"/>
+                <Property Name="BELNR" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="BUZEI" Type="Edm.String" MaxLength="3" Nullable="false"/>
+                <Property Name="BUDAT" Type="Edm.String" MaxLength="8"/>
+                <Property Name="PRCTR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="SEGMENT" Type="Edm.String" MaxLength="10"/>
+                <Property Name="ZFBDT" Type="Edm.String" MaxLength="8"/>
+                <Property Name="ZBD1T" Type="Edm.Int32"/>
+                <Property Name="BLDAT" Type="Edm.String" MaxLength="8"/>
+                <Property Name="WAERS" Type="Edm.String" MaxLength="5"/>
+                <Property Name="WRBTR" Type="Edm.Decimal" Scale="2" Precision="23"/>
+            </EntityType>
+            <EntityType Name="YCREDIT">
+                <Key>
+                    <PropertyRef Name="KUNNR"/>
+                    <PropertyRef Name="BUKRS"/>
+                </Key>
+                <Property Name="KUNNR" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="BUKRS" Type="Edm.String" MaxLength="4" Nullable="false"/>
+                <Property Name="KUSCO" Type="Edm.String" MaxLength="3"/>
+                <Property Name="KURISK" Type="Edm.String" MaxLength="1"/>
+                <Property Name="KURISKT" Type="Edm.String" MaxLength="10"/>
+                <Property Name="KURISKCL" Type="Edm.String" MaxLength="1"/>
+                <Property Name="KURISKCLT" Type="Edm.String" MaxLength="10"/>
+                <Property Name="SECAT01" Type="Edm.String" MaxLength="3"/>
+                <Property Name="SECAT01T" Type="Edm.String" MaxLength="10"/>
+                <Property Name="KULIM_AMT" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="KUSDATE" Type="Edm.DateTimeOffset"/>
+                <Property Name="KUEDATE" Type="Edm.DateTimeOffset"/>
+                <Property Name="USERID" Type="Edm.String" MaxLength="10"/>
+                <Property Name="SYS_DATE" Type="Edm.DateTimeOffset"/>
+                <Property Name="SYS_USER" Type="Edm.String" MaxLength="10"/>
+            </EntityType>
+            <EntityType Name="YCREDIT2">
+                <Property Name="BUKRS" Type="Edm.String" MaxLength="4"/>
+                <Property Name="KUNNR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="E_KUNNERT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="KURISK" Type="Edm.String" MaxLength="1"/>
+                <Property Name="KURISKCL" Type="Edm.String" MaxLength="1"/>
+                <Property Name="KURISKCLT" Type="Edm.String" MaxLength="10"/>
+                <Property Name="KURISKT" Type="Edm.String" MaxLength="10"/>
+                <Property Name="KUSCO" Type="Edm.String" MaxLength="3"/>
+                <Property Name="KUSDATE" Type="Edm.DateTimeOffset"/>
+                <Property Name="SECAT01" Type="Edm.String" MaxLength="3"/>
+                <Property Name="SECAT01T" Type="Edm.String" MaxLength="10"/>
+                <Property Name="KULIM_AMT" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="KUEDATE" Type="Edm.DateTimeOffset"/>
+            </EntityType>
+            <EntityType Name="YCREDIT3">
+                <Key>
+                    <PropertyRef Name="BUKRS"/>
+                    <PropertyRef Name="KUNNR"/>
+                </Key>
+                <Property Name="BUKRS" Type="Edm.String" MaxLength="4" Nullable="false"/>
+                <Property Name="KUNNR" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="KUNNERT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="KURISK" Type="Edm.String" MaxLength="1"/>
+                <Property Name="KURISKCL" Type="Edm.String" MaxLength="1"/>
+                <Property Name="KURISKCLT" Type="Edm.String" MaxLength="10"/>
+                <Property Name="KURISKT" Type="Edm.String" MaxLength="10"/>
+                <Property Name="KUSCO" Type="Edm.String" MaxLength="3"/>
+                <Property Name="KUSDATE" Type="Edm.DateTimeOffset"/>
+                <Property Name="SECAT01" Type="Edm.String" MaxLength="3"/>
+                <Property Name="SECAT01T" Type="Edm.String" MaxLength="10"/>
+                <Property Name="KULIM_AMT" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="KUEDATE" Type="Edm.DateTimeOffset"/>
+            </EntityType>
+            <EntityType Name="YCUSTMST">
+                <Key>
+                    <PropertyRef Name="KUNNR"/>
+                </Key>
+                <Property Name="KUNNR" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="KUNNRT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="KUNNERLD" Type="Edm.String" MaxLength="10"/>
+                <Property Name="KUNNERLDT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="E_KUNNERSC" Type="Edm.String" MaxLength="10"/>
+                <Property Name="E_KUNNERSCT" Type="Edm.String" MaxLength="50"/>
+            </EntityType>
+            <EntityType Name="YEXCREDIT">
+                <Key>
+                    <PropertyRef Name="E_CRID"/>
+                    <PropertyRef Name="E_CRACY"/>
+                    <PropertyRef Name="E_KUNNER"/>
+                </Key>
+                <Property Name="E_CRID" Type="Edm.String" MaxLength="20" Nullable="false"/>
+                <Property Name="E_CRACY" Type="Edm.String" MaxLength="5" Nullable="false"/>
+                <Property Name="E_KUNNER" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="E_KUNNERT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="E_CRACYT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="E_KUNNERLD" Type="Edm.String" MaxLength="10"/>
+                <Property Name="E_KUNNERLDT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="E_KUNNERSC" Type="Edm.String" MaxLength="10"/>
+                <Property Name="E_KUNNERSCT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="E_CRGRN" Type="Edm.String" MaxLength="10"/>
+                <Property Name="E_CRGCD" Type="Edm.String" MaxLength="10"/>
+                <Property Name="E_CRGCDT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="E_CRRCD" Type="Edm.String" MaxLength="10"/>
+                <Property Name="E_CRRCDT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="E_CRSCO" Type="Edm.String" MaxLength="10"/>
+                <Property Name="E_CRSCOR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="E_CRSCORT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="E_CREVLDATE" Type="Edm.DateTimeOffset"/>
+                <Property Name="E_CRSDATE" Type="Edm.DateTimeOffset"/>
+                <Property Name="E_CREDATE" Type="Edm.DateTimeOffset"/>
+                <Property Name="SYS_DATE" Type="Edm.DateTimeOffset"/>
+                <Property Name="SYS_USER" Type="Edm.String" MaxLength="20"/>
+                <Property Name="E_RISKNM" Type="Edm.String" MaxLength="10"/>
+            </EntityType>
+            <EntityType Name="YEXCREDITH">
+                <Key>
+                    <PropertyRef Name="E_CRID"/>
+                    <PropertyRef Name="E_CRACY"/>
+                    <PropertyRef Name="E_KUNNR"/>
+                    <PropertyRef Name="E_CRDT"/>
+                </Key>
+                <Property Name="E_CRID" Type="Edm.String" MaxLength="20" Nullable="false"/>
+                <Property Name="E_CRACY" Type="Edm.String" MaxLength="3" Nullable="false"/>
+                <Property Name="E_KUNNR" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="E_CRDT" Type="Edm.Date" Nullable="false"/>
+                <Property Name="E_CRACYT" Type="Edm.String" MaxLength="10"/>
+                <Property Name="E_KUNNERLD" Type="Edm.String" MaxLength="10"/>
+                <Property Name="E_KUNNERLDT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="E_KUNNERSC" Type="Edm.String" MaxLength="10"/>
+                <Property Name="E_KUNNERSCT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="E_CRGRN" Type="Edm.String" MaxLength="3"/>
+                <Property Name="E_CRGCD" Type="Edm.String" MaxLength="3"/>
+                <Property Name="E_CRGCDT" Type="Edm.String" MaxLength="3"/>
+                <Property Name="E_CRRCD" Type="Edm.String" MaxLength="3"/>
+                <Property Name="E_CRRCDT" Type="Edm.String" MaxLength="3"/>
+                <Property Name="E_CRSCO" Type="Edm.String" MaxLength="10"/>
+                <Property Name="E_CRSCOR" Type="Edm.String" MaxLength="3"/>
+                <Property Name="E_CRSCORT" Type="Edm.String" MaxLength="10"/>
+                <Property Name="E_CREVLDATE" Type="Edm.DateTimeOffset"/>
+                <Property Name="E_CRSDATE" Type="Edm.DateTimeOffset"/>
+                <Property Name="E_CREDATE" Type="Edm.DateTimeOffset"/>
+                <Property Name="SYS_DATE" Type="Edm.DateTimeOffset"/>
+                <Property Name="SYS_USER" Type="Edm.String" MaxLength="20"/>
+            </EntityType>
+            <EntityType Name="YORG">
+                <Key>
+                    <PropertyRef Name="PRCTR"/>
+                </Key>
+                <Property Name="PRCTR" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="PRCTRT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="GROUP01" Type="Edm.String" MaxLength="3"/>
+                <Property Name="GROUP01T" Type="Edm.String" MaxLength="10"/>
+                <Property Name="GROUP02" Type="Edm.String" MaxLength="3"/>
+                <Property Name="GROUP02T" Type="Edm.String" MaxLength="10"/>
+            </EntityType>
+            <EntityType Name="YSECURITY">
+                <Key>
+                    <PropertyRef Name="KUNNR"/>
+                    <PropertyRef Name="BUKRS"/>
+                    <PropertyRef Name="SENUM"/>
+                    <PropertyRef Name="SECAT01"/>
+                </Key>
+                <Property Name="KUNNR" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="BUKRS" Type="Edm.String" MaxLength="4" Nullable="false"/>
+                <Property Name="SENUM" Type="Edm.String" MaxLength="3" Nullable="false"/>
+                <Property Name="SECAT01" Type="Edm.String" MaxLength="3" Nullable="false"/>
+                <Property Name="SECAT01T" Type="Edm.String" MaxLength="10"/>
+                <Property Name="SECAT02" Type="Edm.String" MaxLength="5"/>
+                <Property Name="SECAT02T" Type="Edm.String" MaxLength="10"/>
+                <Property Name="SEDESCRIPT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="SEVAL_AMT" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="SESDATE" Type="Edm.DateTimeOffset"/>
+                <Property Name="SEEDATE" Type="Edm.DateTimeOffset"/>
+                <Property Name="USERID" Type="Edm.String" MaxLength="10"/>
+                <Property Name="SYS_DATE" Type="Edm.DateTimeOffset"/>
+                <Property Name="SYS_USER" Type="Edm.String" MaxLength="20"/>
+            </EntityType>
+            <EntityType Name="ZS4BSIDDAT">
+                <Key>
+                    <PropertyRef Name="KUNNR"/>
+                    <PropertyRef Name="BUKRS"/>
+                    <PropertyRef Name="GJAHR"/>
+                    <PropertyRef Name="BELNR"/>
+                    <PropertyRef Name="BUZEI"/>
+                </Key>
+                <Property Name="KUNNR" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="BUKRS" Type="Edm.String" MaxLength="4" Nullable="false"/>
+                <Property Name="GJAHR" Type="Edm.String" MaxLength="4" Nullable="false"/>
+                <Property Name="BELNR" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="BUZEI" Type="Edm.String" MaxLength="3" Nullable="false"/>
+                <Property Name="BUDAT" Type="Edm.String" MaxLength="8"/>
+                <Property Name="PRCTR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="SEGMENT" Type="Edm.String" MaxLength="10"/>
+                <Property Name="ZFBDT" Type="Edm.String" MaxLength="8"/>
+                <Property Name="ZBD1T" Type="Edm.Int32"/>
+                <Property Name="BLDAT" Type="Edm.String" MaxLength="8"/>
+                <Property Name="WAERS" Type="Edm.String" MaxLength="5"/>
+                <Property Name="WRBTR" Type="Edm.Decimal" Scale="2" Precision="23"/>
+            </EntityType>
+            <EntityType Name="mastervw">
+                <Key>
+                    <PropertyRef Name="KUNNR"/>
+                    <PropertyRef Name="BUKRS"/>
+                    <PropertyRef Name="GJAHR"/>
+                    <PropertyRef Name="BELNR"/>
+                    <PropertyRef Name="BUZEI"/>
+                </Key>
+                <Property Name="PRCTR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="KUNNR" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="BUKRS" Type="Edm.String" MaxLength="4" Nullable="false"/>
+                <Property Name="GJAHR" Type="Edm.String" MaxLength="4" Nullable="false"/>
+                <Property Name="BUDAT" Type="Edm.String" MaxLength="8"/>
+                <Property Name="BELNR" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="BUZEI" Type="Edm.String" MaxLength="3" Nullable="false"/>
+                <Property Name="ZFBDT" Type="Edm.String" MaxLength="8"/>
+                <Property Name="ZBD1T" Type="Edm.Int32"/>
+                <Property Name="BLDAT" Type="Edm.String" MaxLength="8"/>
+                <Property Name="WRBTR" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="WAERS" Type="Edm.String" MaxLength="5"/>
+                <Property Name="DELAYDT" Type="Edm.Int32"/>
+                <Property Name="PLAN_AMT" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue1_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue2_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue3_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue4_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+            </EntityType>
+            <EntityType Name="Batchrt01Parameters">
+                <Key>
+                    <PropertyRef Name="p_sdate"/>
+                </Key>
+                <Property Name="p_sdate" Type="Edm.String" MaxLength="8" Nullable="false"/>
+                <NavigationProperty Name="Set" Type="Collection(CatalogService.Batchrt01Type)" Partner="Parameters" ContainsTarget="true"/>
+            </EntityType>
+            <EntityType Name="Batchrt01Type">
+                <Property Name="SDATE" Type="Edm.Date"/>
+                <Property Name="GROUP01" Type="Edm.String" MaxLength="3"/>
+                <Property Name="GROUP01T" Type="Edm.String" MaxLength="10"/>
+                <Property Name="PRCTRT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="SEGMENT" Type="Edm.String" MaxLength="30"/>
+                <Property Name="OVDCNT01" Type="Edm.Int32"/>
+                <Property Name="OVDCNT02" Type="Edm.Int32"/>
+                <Property Name="OVDAMT01" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="OVDAMT02" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <NavigationProperty Name="Parameters" Type="CatalogService.Batchrt01Parameters" Partner="Set"/>
+            </EntityType>
+            <EntityType Name="Batchrt01_1Parameters">
+                <Key>
+                    <PropertyRef Name="p_sdate"/>
+                </Key>
+                <Property Name="p_sdate" Type="Edm.String" MaxLength="8" Nullable="false"/>
+                <NavigationProperty Name="Set" Type="Collection(CatalogService.Batchrt01_1Type)" Partner="Parameters" ContainsTarget="true"/>
+            </EntityType>
+            <EntityType Name="Batchrt01_1Type">
+                <Property Name="SDATE" Type="Edm.Date"/>
+                <Property Name="GROUP01" Type="Edm.String" MaxLength="3"/>
+                <Property Name="GROUP01T" Type="Edm.String" MaxLength="10"/>
+                <Property Name="PRCTRT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="SEGMENT" Type="Edm.String" MaxLength="30"/>
+                <Property Name="KUNNR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="KUNNRT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="USERID" Type="Edm.String" MaxLength="100"/>
+                <Property Name="SEVAL_AMT01" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="SEVAL_AMT02" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="KULIM_AMT" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="KULIM_AMT2" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="PLAN_AMT" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue1_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue2_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue3_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue4_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <NavigationProperty Name="Parameters" Type="CatalogService.Batchrt01_1Parameters" Partner="Set"/>
+            </EntityType>
+            <EntityType Name="Resultvw02Parameters">
+                <Key>
+                    <PropertyRef Name="p_bukrs"/>
+                    <PropertyRef Name="p_bldat"/>
+                </Key>
+                <Property Name="p_bukrs" Type="Edm.String" MaxLength="4" Nullable="false"/>
+                <Property Name="p_bldat" Type="Edm.String" MaxLength="8" Nullable="false"/>
+                <NavigationProperty Name="Set" Type="Collection(CatalogService.Resultvw02Type)" Partner="Parameters" ContainsTarget="true"/>
+            </EntityType>
+            <EntityType Name="Resultvw02Type">
+                <Key>
+                    <PropertyRef Name="KUNNR"/>
+                    <PropertyRef Name="BUKRS"/>
+                    <PropertyRef Name="GJAHR"/>
+                    <PropertyRef Name="BELNR"/>
+                    <PropertyRef Name="BUZEI"/>
+                </Key>
+                <Property Name="PRCTR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="KUNNR" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="BUKRS" Type="Edm.String" MaxLength="4" Nullable="false"/>
+                <Property Name="GJAHR" Type="Edm.String" MaxLength="4" Nullable="false"/>
+                <Property Name="BUDAT" Type="Edm.String" MaxLength="8"/>
+                <Property Name="BELNR" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="BUZEI" Type="Edm.String" MaxLength="3" Nullable="false"/>
+                <Property Name="ZFBDT" Type="Edm.String" MaxLength="8"/>
+                <Property Name="ZBD1T" Type="Edm.Int32"/>
+                <Property Name="BLDAT" Type="Edm.String" MaxLength="8"/>
+                <Property Name="WRBTR" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="WAERS" Type="Edm.String" MaxLength="5"/>
+                <Property Name="DELAYDT" Type="Edm.Int32"/>
+                <Property Name="PLAN_AMT" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue1_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue2_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue3_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue4_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="overdue_amt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <NavigationProperty Name="Parameters" Type="CatalogService.Resultvw02Parameters" Partner="Set"/>
+            </EntityType>
+            <Action Name="PC_DAILY_BATCH" IsBound="false"/>
+            <Annotations Target="CatalogService.Books">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CatalogService.EntityContainer/Books">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw01/SEGMENT">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw01/overdue_amt01">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw01/overdue_amt02">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw01_1/SEGMENT">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw01_1/SEVAL_AMT01">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw01_1/SEVAL_AMT02">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw01_1/KULIM_AMT">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw01_1/PLAN_AMT">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw01_1/overdue1_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw01_1/overdue2_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw01_1/overdue3_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw01_1/overdue4_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw01_1/overdue_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.YCREDIT3/KUNNERT">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.mastervw/DELAYDT">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.mastervw/PLAN_AMT">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.mastervw/overdue1_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.mastervw/overdue2_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.mastervw/overdue3_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.mastervw/overdue4_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.mastervw/overdue_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Batchrt01Type/SEGMENT">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Batchrt01Type/OVDCNT01">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Batchrt01Type/OVDCNT02">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Batchrt01Type/OVDAMT01">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Batchrt01Type/OVDAMT02">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Batchrt01_1Type/SEGMENT">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Batchrt01_1Type/USERID">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Batchrt01_1Type/SEVAL_AMT01">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Batchrt01_1Type/SEVAL_AMT02">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Batchrt01_1Type/KULIM_AMT">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Batchrt01_1Type/KULIM_AMT2">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Batchrt01_1Type/PLAN_AMT">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Batchrt01_1Type/overdue1_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Batchrt01_1Type/overdue2_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Batchrt01_1Type/overdue3_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Batchrt01_1Type/overdue4_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Batchrt01_1Type/overdue_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw02Type/DELAYDT">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw02Type/PLAN_AMT">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw02Type/overdue1_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw02Type/overdue2_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw02Type/overdue3_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw02Type/overdue4_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Resultvw02Type/overdue_amt">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

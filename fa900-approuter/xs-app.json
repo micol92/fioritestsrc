@@ -1,0 +1,20 @@
+{
+    "welcomeFile": "yorg",
+    "authenticationMethod": "none",
+    "routes": [
+        {
+            "authenticationType": "none",
+            "csrfProtection": false,
+            "source": "^/core_api/(.*)$",
+            "destination": "core_api",
+            "target": "$1"
+        }, 
+        {
+            "source": "^/catalog/(.*)$",
+            "target": "/catalog/$1",
+            "destination": "core_api",
+            "authenticationType": "none",
+            "csrfProtection": false            
+        }
+    ]
+}

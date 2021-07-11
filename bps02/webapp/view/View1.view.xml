@@ -1,0 +1,22 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="bps02.controller.View1" displayBlock="true">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+				<content>
+				    <List noDataText="Drop list items here" id="list0" items="{/YORG}">
+				        <items>
+				            <StandardListItem xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" type="Navigation" title="{title}" description="Description text" icon="sap-icon://picture" id="item1"/>
+				        </items>
+				    </List>
+				    <List noDataText="Drop list items here" items="{/YEXCREDIT}" id="list0_1625870507199">
+				        <items>
+				            <StandardListItem type="Navigation" title="{E_KUNNERT}" description="Description text" icon="sap-icon://picture" id="item0"/>
+				        </items>
+				    </List>
+				</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

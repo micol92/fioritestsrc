@@ -1,0 +1,8 @@
+{
+  "destinations": [
+    {
+      "name": "core_api",
+      "url": "https://scp-kr-lottechembtppoc-core-lccap01-srv.cfapps.ap11.hana.ondemand.com"
+    }
+  ]
+}
